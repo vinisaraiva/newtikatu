@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Picker Component</title>
+    <style>
+        .card {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <label for="start_date">Data inicial:</label>
+        <input type="date" id="start_date">
+        <br>
+        <label for="end_date">Data final:</label>
+        <input type="date" id="end_date">
+        <button onclick="sendDates()">Submit</button>
+    </div>
+    <script>
+        function sendDates() {
+            const startDate = document.getElementById('start_date').value;
+            const endDate = document.getElementById('end_date').value;
+            window.parent.postMessage({ startDate, endDate }, "*");
+        }
+    </script>
+</body>
+
+</html>
